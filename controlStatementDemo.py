@@ -41,8 +41,15 @@ else :
 # 4의 배수 and 100의 배수가 아니거나 or 400의 배수
 # if구문을 사용하여 년도와 월을 출력받아 월의 마지막 일 출력
 
+''' 중요함!!
+일반적으로 논리연산자는 &&(and), ||(or)가 있음
+&, |는 비트연산자로서 값을 이진수로 변환하여 출력해줌
+그러나 파이썬에서 &&, ||는 사용할 수 없기 때문에 논리연산자를 사용할 때
+꼭 and, or 을 입력해주어야함!!
+'''
+
 year = 2020
-if (year % 4 == 0 and year % 100 != 0) | (year % 400 == 0):
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
     print('{}는 윤년이다'.format(year))
 else :
     print('{}는 윤년이 아니다'.format(year))
@@ -96,3 +103,12 @@ num = 9
 result = 0
 result = num * 2 if num > 5 else num + 2
 print('삼항 연산자 - ',result)
+
+# & == and  필기 마저해!!!!!!!!!
+'''
+and (논리연산자, True | False 연산)
+-> x and y 있을 때 x가 False x값을 반환하고
+-> x 가 True y 값을 반환한다
+
+& (비교연산자 
+'''
