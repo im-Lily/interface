@@ -103,12 +103,3 @@ num = 9
 result = 0
 result = num * 2 if num > 5 else num + 2
 print('삼항 연산자 - ',result)
-
-# & == and  필기 마저해!!!!!!!!!
-'''
-and (논리연산자, True | False 연산)
--> x and y 있을 때 x가 False x값을 반환하고
--> x 가 True y 값을 반환한다
-
-& (비교연산자 
-'''
