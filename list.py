@@ -34,7 +34,7 @@ print("a - print : ", a)
 # extend() / append() 차이 구분하기!
 ex = [4,3]
 a.append(ex)
-print('a - applend : ', a) # 리스트형태로 추가됨
+print('a - append : ', a) # 리스트형태로 추가됨
 
 ex = [4,3]
 a.extend(ex)
