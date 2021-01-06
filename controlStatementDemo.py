@@ -24,7 +24,7 @@ if 조건문 :
 
 # 3의 배수인지 5의 배수인지 확인
 number = 15
-if number % 3 ==0 & number % 5 ==0 :
+if number % 3 == 0 & number % 5 == 0 :
     print('{}은 3과 5의 배수이다'.format(number))
 else :
     print('{}은 3과 5의 배수가 아니다'.format(number))
