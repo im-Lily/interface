@@ -12,7 +12,7 @@ if num < 0 :
 elif num > 255 :
     print(255)
 else :
-    print(num)
+    print(num - 20)
 
 ''' no.2
 # 문제 2)
