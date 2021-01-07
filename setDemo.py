@@ -1,7 +1,7 @@
 # python set type - set(집합) -> 연산가능
 # 순서와 중복 X, -> 활용빈도 낮음
 # 요소에 대한 추가 가능
-# {]
+# {}
 # set([]) - list 형태로 set 생성가능
 
 temp = {'jslim','teacher'}
