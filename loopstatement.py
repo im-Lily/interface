@@ -3,7 +3,6 @@
 # for ~ in list, dict
 # for ~ in enumerate(list)
 
-userSum = 0
 for tmp in range(1, 10) :
     print(tmp, end='\t')
 
@@ -59,23 +58,16 @@ userDict = {'test'+str(tmp) : tmp ** 2 for tmp in range(1,10)}
 print(userDict)
 
 # 단어의 빈도수 구하기
-wordVec = ['love', 'word', 'cat','love', 'word', 'cat']
+wordVec = ['love', 'word', 'cat','love', 'word','love']
 print(len(wordVec)) # list의 개수 = 요소의 개수
 
 # get() : 해당 key의 value값 호출함수
+# get() default : key, value
 wordCnt = {}
 for word in wordVec :
     wordCnt[word] = wordCnt.get(word, 0) + 1
-print(wordCnt)
-
-# 엥
-wordCnt02 = {}
-for word in wordVec :
-    if word in wordCnt02 :
-        wordCnt[word] += 1
-    else :
-        wordCnt02[word] = 1
-print(wordCnt02)
+    print(wordCnt[word])
+print(wordCnt,type(wordCnt))
 
 # 1 ~ 1000 합 구하기
 rangeSum = 0
