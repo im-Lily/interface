@@ -8,7 +8,7 @@ strValue = 'jslim'
 print()
 print(type(intValue),type(floatValue),type(boolValue),type(strValue))
 
-# type casteing
+# type casting
 numStr = "720"
 numNum = 100
 print(int(numStr) + numNum) # 정수형의 결합
@@ -26,7 +26,7 @@ dictValue = {
     "neme" : "machine Learning",
     'version' : 2.0
 }
-print(type(dictValue))
+print(type(dictValue), dictValue)
 
 # tupel ()
 # 요소의 값이 하나일 경우 , 꼭 해주기!!
@@ -47,12 +47,12 @@ print(inputNumber)
 
 ''' 오류 : int + str X
 inputNumber = input('숫자를 입력하세요 : ')
-sum = 100 +inputNumber
+sum = 100 + inputNumber
 print(sum)
 '''
 
-inputNumber = int(input('숫자를 입력하세요 : '))
-sum = 100 +inputNumber
+inputNumber = tin(input('숫자를 입력하세요 : '))
+sum = 100 + inputNumber
 print(sum)
 
 # 문자형(str) - Text Sequence 중요해!
@@ -69,7 +69,9 @@ sample text"""
 
 # seqText는 연속되며 인덱싱이 가능하고 슬라이싱이 가능함
 seqText = 'Talk is cheap. Show me the code'
-print(seqText)
+print(seqText, type(seqText))
+print(seqText[0:4])
+print(seqText.split(' '))
 
 # dir() - 사용가능한 내장함수 출력
 # iter : 순환반복 내장함수
@@ -93,6 +95,7 @@ print(string[ : : 2])
 print(string[ : : -1])
 
 # 문자열 조작을 위한 많은 내장함수 제공
+# 단어의 앞글자 대문자로 변경
 string = "python"
 print("Capitalize : " , string.capitalize())
 
@@ -116,6 +119,7 @@ print('domain : ', urlSplit[-1])
 
 # 문자열에서 공백 제거 함수 : strip(), rstrip(), lstrip()
 companyName = '    samsung    '
+print(companyName, len(companyName))
 print(companyName.strip(), len(companyName.strip()))
 print(companyName.rstrip(), len(companyName.rstrip()))
 print(companyName.lstrip(), len(companyName.lstrip()))
@@ -123,12 +127,14 @@ print(companyName.lstrip(), len(companyName.lstrip()))
 # 대문자, 소문자 변환함수 : upper(), lower()
 print(companyName.upper())
 
-# endswith()의 retrun type = bool
+# endswith() : 문자열이 특정문자로 끝나는지 확인
+# retrun type = bool
 fileName = 'reprot.xls'
 isExits = fileName.endswith(('xls', 'xlsx', 'csv'))
 print(isExits, type(isExits))
 
 # in, not in -> True | False
+# 파이썬은 대소문자 구별함
 myStr = "This is a sample Text"
 print("Sample" in myStr)
 print('text' not in myStr)
