@@ -12,7 +12,7 @@ xValue = 5
 yValue = 0
 print(xValue & yValue)
 print(bool(xValue & yValue))
-# 2진수로 표현 -> 0101 & 0000 -> 0101 -> 5
+# 2진수로 표현 -> 0101 | 0000 -> 0101 -> 5
 print(xValue | yValue)
 print(bool(xValue | yValue))
 
