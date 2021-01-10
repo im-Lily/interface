@@ -37,7 +37,7 @@ for idx in range(len(scores)) :
 
 scores = [100, 50, 80, 90, 70, 60]
 for idx in range(len(scores)) :
-    userSum = userSum +scores[idx]
+    userSum += scores[idx]
 
 print('scores 합 %d' % userSum)
 
@@ -75,7 +75,7 @@ for value in range(1,1001) :
     rangeSum += value
 print('1 ~ 1000 합 %d 이다.' %(rangeSum))
 
-# 2000 ~ 2050년까지 올림픽 개최년도 출력하기
+# 2000 ~ 2050년까지 올림픽 개최년도(4년에 한번) 출력하기
 # 단, 한 줄에 5개 년도 출력하고 개행
 cnt = 0
 for year in range(2000,2051,4) :
@@ -169,7 +169,7 @@ for i in range(2, 10) :
 
 # 리스트에 요소 추가함수
 # append() : 마지막 인덱스에 추가,
-# insert(), extend() : 특정 위체에 요소 추가
+# insert(), extend() : 특정 위치에 요소 추가
 
 string = '''나는 지금 파이썬 강의를 듣고있다
 하루빨리 대면강의를 하고싶다
@@ -275,7 +275,7 @@ if randNum02 == userNum02 :
 else :
     print('정답 {}'.format(randNum02))
 
-# random choice()
+# random choices()
 dataset = list(range(1, 10001))
 print(dataset)
 
