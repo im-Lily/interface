@@ -3,7 +3,7 @@
 # list VS tuple
 # 읽기 전용 (immutable)
 # tuple()
-# indexcing, slicing 가능
+# indexing, slicing 가능
 
 myTuple = ('반도', '강철비', '아이언맨')
 oneTuple = (1,)
@@ -14,7 +14,7 @@ print(type(myTuple))
 
 multiTuple = (100, 1000, 'Ace', 'Base', 'Captine')
 # indexing
-print(multiTuple[1])
+print(multiTuple[1],type(multiTuple))
 print(multiTuple[2:],type(multiTuple)) # tuple로 return
 
 # casting : tuple <-> list
@@ -26,7 +26,7 @@ castingMultiTuple = tuple(multiList)
 range01 = range(10)
 print(range01)
 
-range02 = range(1,11,2)
+range02 = tuple(range(1,11,2))
 print(range02)
 print(7 in range02)
 print(10 in range02)
@@ -39,6 +39,9 @@ print(range02[-1])
 # 1 ~ 99까지의 정수 중 짝수만 저장된 튜플 생성
 even = tuple(range(2,100,2))
 print(even)
+even02 = list(even)
+even02[0] = 1
+print(even02)
 # even[0] = 1 -> 수정, 삭제 불가능
 
 
