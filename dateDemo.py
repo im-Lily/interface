@@ -34,10 +34,10 @@ userDate = parse('2021-06-04')
 print('parser date - ', userDate,type(userDate))
 
 userDate = datetime(2021,12,25)
-print('dattime date - ', userDate,type(userDate))
+print('datetime date - ', userDate,type(userDate))
 
 # 날짜 객체의 출력형식 원하는대로 변경
-today = datetime.tdoay()
+today = datetime.today()
 # 날짜 -> 문자열로 변환 strftime()
 print("{}".format(today.strftime('%m-%d-%y')))
 print("{}".format(today.strftime('%m-%d-%Y')))
