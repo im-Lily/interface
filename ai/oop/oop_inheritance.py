@@ -37,7 +37,6 @@ object : 부모클래스, Sup가 object를 상속받음
 object < Sup < Sub
 class Sup(object) :
     pass
-
 class Sub(Sup) :
     pass
 '''
@@ -64,6 +63,7 @@ class Child01(Parent) :
 class child02(Parent) :
     pass
 
+# 상속과 다형성
 class Person(object) :
     def __init__(self, name, age, address):
         self.name = name
@@ -122,7 +122,7 @@ instance function - public 변경 private ? __instance function
 
 class HidingClass(object) :
     def __init__(self, name, dept, num):
-        self.utype = self.__class__.__name__
+        self.utype = self.__class__.__name__ # type check
         self.name = name
         self.__dept = dept
         self.num = num
@@ -174,8 +174,6 @@ class Account(object) :
 #      기본 이자율에 잔액 10만원 이상이며 10%
 #      기본 이자율에 잔액 50만원 이상이며 15%
 #      기본 이자율에 잔액 100만원 이상이며 20%
-
-
 # 2. accountInfo() - 계좌의 정보를 출력한다(account, balance, interestRate)
 # 3. deposit(amount) - 계좌 잔액에 매개변수로 들어온 amount를 누적한다.
 # 4. printInterestRate() - 현재 잔액에 이자율을 계산하여 소수점 자리 2자리까지 출력한다.
@@ -192,16 +190,23 @@ class Account(object) :
     def deposit(self, amount):
         self.balance += amount
     def printInterestRate(self):
-        print('%.2f' % float(self.balance + (self.balance * self.interestRate))
+        print('%2f' % float(self.balance + (self.balance * self.interestRate)))
     def withDraw(self, amount):
         if self.balance < amount :
-            print('잔액 부족으로 출금 불가능')
-        else :
+            print('잔액이 부족하여 출금 불가능')
+        else:
             self.balance -= amount
 
-class FundAccount(Account) :
-    def __init__(self,account, balance, interrestRate, type):
-        super().__init__(account,balance,interrestRate)
+class SavingAccount(Account) :
+    def __init__(self, account, balance, interestRate, type):
+        super().__init__(account, balance, interestRate)
+        self.type = type
+    def printInterestRate(self):
+        self.balance += self.interestRate * 0.1
+
+class FundAccount(Account):
+    def __init__(self, account, balance, interrestRate, type):
+        super().__init__(account, balance, interrestRate)
         self.type = type
     def printInterestRate(self):
         if 0 < self.balance < 100000 :
@@ -211,16 +216,5 @@ class FundAccount(Account) :
             self.balance += self.interestRate * 0.1
             print(self.balance)
         elif self.balance < 1000000 :
-            self.balance += self.interestRate * 0.15
-            print(self.balance)
-        else :
             self.balance += self.interestRate * 0.2
             print(self.balance)
-
-class SavingAccount(Account):
-    def __init__(self, account, balance, interrestRate, type):
-        super().__init__(account, balance, interrestRate)
-        self.type = type
-    def printInterestRate(self):
-        self.balance += self.interestRate * 0.1
-        print(self.balance)
