@@ -20,13 +20,7 @@ medic01 = Medic(0,100,0)
 medic02 = Medic(0,100,0)
 
 # 병력을 list에 담아줌
-tropList = []
-tropList.append(marin01)
-tropList.append(marin02)
-tropList.append(marin03)
-tropList.append(marin04)
-tropList.append(medic01)
-tropList.append(medic02)
+tropList = [marin01,marin02,marin03,marin04,medic01,medic02]
 
 # 기본정보 출력
 for obj in tropList :
