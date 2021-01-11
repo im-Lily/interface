@@ -31,15 +31,14 @@ print(userDate.getYear())
 userDate = MyDate() # 매개변수 존재하지않음
 userDate.setYear(-2021) # 정보은닉 -> 간접적으로만 접근가능
 print(userDate.getYear())
-# print(userDate.getYear())
 
 hiding = HidingClass('eun','stu',100)
 print('utype - ', hiding.utype)
 print('name - ',hiding.name)
-# print('dept - ',hiding.__dept)
+# print('dept - ',hiding.__dept) -> 정보은닉
 print('num - ',hiding.num)
 print('call getDept - ', hiding.getDept())
-print('call __getInfo - ', hiding.__getInfo())
+# print('call __getInfo - ', hiding.__getInfo())
 
 # 다형성
 stu01 = StudentVO('정은경', 25, 'incheon', '2016')
