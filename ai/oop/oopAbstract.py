@@ -251,6 +251,46 @@ class CounterIter :
 cntIter = iter(Counter(10))
 print(next(cntIter))
 
+## ohter
+
+class Counter :
+    def __init__(self, stop):
+        self.current = 0
+        self.stop = stop
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.current < self.stop :
+            r = self.current
+            self.current += 1
+            return r
+        else :
+            raise StopIteration
+
+for i in Counter(3) :
+    print(i, end= ' ')
+
+# 배수 이터레이터
+class MultipleInter :
+    def __init__(self, stop, multiple):
+        self.stop = stop
+        self.multiple = multiple
+        self.current = 0
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.current += 1
+        if self.current * self.multiple < self.stop :
+            return self.current * self.multiple
+        else :
+            raise StopIteration
+
+for i in MultipleInter(20,3) :
+    print(i, end=' ')
+print()
+for i in MultipleInter(30,5) :
+    print(i, end=' ')
+
 # Comprehension
 '''
 [출력표현식 for 요소 in sequence [if 조건식]] - list type
