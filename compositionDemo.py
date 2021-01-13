@@ -59,7 +59,7 @@ except xxxError :
 else :
     에러가 발생되지 않을 때 실행되는 블럭
 finally :
-    에러발생과 상관없이 무조건 수행
+    에러발생과 상관없이 항상 수행
 '''
 
 # 여러가지 에러발생
@@ -85,7 +85,7 @@ def userKeyIn() :
     except Exception :
         # print('error - ', e)
         print('문자열이 아닌 정수를 입력하세요')
-        userKeyIn()
+        userKeyIn() # 재호출
     else :
         print('age - ', age)
         print('함수실행 종료')
