@@ -182,3 +182,66 @@ def fileStream(fileName, mode) :
         finally :
             pass
 
+# binary 형식 입출력
+scores = {'kor' : 90, 'eng' : 95, 'math' : 70, 'scien' : 92}
+print(type(scores))
+
+def scoresWriter() :
+    with open(file='scores.txt', mode = 'w') as file :
+        for key, value in scores.items() :
+            file.write('{} : {}\n'.format(key, value))
+
+scoresWriter()
+
+import pickle
+
+def pickleWriter() :
+    with open('scores.txt','wb') as file:
+        pickle.dump(scores,file)
+
+pickleWriter()
+
+def pickleReader() :
+    with open('scores.txt','rb') as file :
+        print(pickle.load(file))
+
+pickleReader()
+
+def wordsReader() :
+    wordList = []
+    with open(file = './word/cnt_words.txt', mode = 'r', encoding='utf-8') as file :
+        for word in file.readlines() :
+            word = word.strip('\n')
+            if len(word) <= 10 :
+                wordList.append(word)
+        print('10자 이하의 단어개수 {}'.format(len(wordList)))
+
+wordsReader()
+
+def specialReader() :
+    with open('./word/special_words.txt','r',encoding='utf-8') as file :
+        word = file.readline().split()
+        # print(word, type(word))
+        for w in word :
+            if 'c' in w :
+                print(w.strip(',.'))
+
+specialReader()
+
+### 왜 안될까
+def searchFunc() :
+    with open('./word/zipcode.txt', 'r', encoding='utf-8') as file:
+        try :
+            dong = input('동을 입력하세요 : ')
+            line = file.readline()
+        except Exception :
+            print('문자를 입력하세요 : ')
+        else :
+            while line :
+                address = line.split()
+                # print(address,type(address))
+                if address[3].startswith(dong) and address[3].endswith('동') :
+                    print(address)
+                line = file.readline()
+
+searchFunc()
