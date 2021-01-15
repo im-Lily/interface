@@ -85,17 +85,28 @@ question03(list,'honda')
 
 def question04() :
     myList = mpgFunc()
-    result = []
     for idx in range(0,len(myList)) :
         manuList = myList[idx]['manufacturer']
         if manuList == 'audi' :
-            audiList = myList[idx]['hwy'].split()
-            # print(audiList,type(audiList))
-            result.extend(audiList)
-            audiSort = sorted(result, key = lambda x : x[0], reverse=True)
-            # sorted(a, key=lambda x: x[0])
-    # print(audiSort[:5])
-    return audiSort[:5]
+            audiHwy = myList[idx]['hwy'].split()
+            audiModel = myList[idx]['model'].split('\n')
+            # print(audiHwy,type(audiHwy))
+            # print(audiModel,type(audiModel))
+            dic = {}
+            for key, value in zip(audiModel,audiHwy) :
+                dic[key] = value
+            # print(dic,type(dic))
+            dicSort = sorted(dic.items(), key=lambda x:x[1], reverse=True)
+            print(dicSort,type(dicSort))
+'''
+왜 정렬 안되고 난리이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+'''
+            # cnt = 0
+            # for j in dicSort :
+            #     cnt += 1
+            #     if cnt == 5:
+            #         return 0
+            # print(j,end='')
 
 question04()
 
