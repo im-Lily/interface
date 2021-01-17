@@ -89,26 +89,32 @@ def question04() :
         manuList = myList[idx]['manufacturer']
         if manuList == 'audi' :
             audiHwy = myList[idx]['hwy'].split()
-            audiModel = myList[idx]['model'].split('\n')
+            audiModel = myList[idx]['model'].split(',')
             # print(audiHwy,type(audiHwy))
             # print(audiModel,type(audiModel))
             dic = {}
             for key, value in zip(audiModel,audiHwy) :
-                dic[key] = value
+                dic[key] = int(value)
             # print(dic,type(dic))
             dicSort = sorted(dic.items(), key=lambda x:x[1], reverse=True)
+            # dicSort = reversed(sorted(dic.items(), key=lambda x: x[1])) # 주소번지 출력
             print(dicSort,type(dicSort))
-'''
-왜 정렬 안되고 난리이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
-'''
+
             # cnt = 0
             # for j in dicSort :
             #     cnt += 1
             #     if cnt == 5:
             #         return 0
             # print(j,end='')
-
 question04()
+
+'''
+왜 정렬 안되고 난리이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+'''
+
+def quextion05() :
+    pass
+
 
 
 
