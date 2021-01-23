@@ -31,7 +31,7 @@ print('3 또는 5의 배수들의 합 %d' %nSum)
 # 피보나치 지옥
 f1 = 0
 f2 = 1
-fibo = a + b
+fibo = f1 + f2
 total = 0
 
 while fibo <= 4000000 :
@@ -58,16 +58,16 @@ print(total)
 ## 정답 :  "abcdabcdababccddcd" => C
 '''
 
-# 이거 넘 어렵다리~,,
 str01 = "This is a sample Program mississippi river"
 str02 = "abcdabcdababccddcd"
 
-countWord = {}
-for str01 in countWord :
-    countWord[str01] = countWord.get(str01, 0) + 1
-print(countWord[str01])
+strSum = 0
+for idx in range(len(str01)) :
+    str01 = str01.lower()
+    print(str01[idx])
 
-
+'''
+## 문제4.
 ## 로또 프로그램 작성
 ## 5000원으로 로또복권을 5장 자동으로 구매합니다.
 ## 이번 주 로또 당첨번호를 생성하여 로또 당첨을 확인하세요!
@@ -96,7 +96,7 @@ i = random.randrange(10)  # 0부터 9 사이의 임의의 정수
 ##### 추가문제
 ##### 1등에 당첨될려면 평균적으로 얼마만큼의 돈을 투자해야 할까요?
 ##### 로또 1게임은 1000원입니다.
-
+'''
 
 ## 문제 5.
 ## 어떤 수를 소수의 곱으로만 나타내는 것을 소인수분해라 하고,
