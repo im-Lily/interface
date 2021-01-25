@@ -115,6 +115,30 @@ question04()
 def quextion05() :
     pass
 
+# question07
+import pandas as pd
+from pandas import DataFrame
+from pandas import Series
+import numpy as np
+
+mpgdata = pd.read_csv("./word/mpg.txt")
+# print(mpgdata)
+grouped = mpgdata['hwy'].groupby(mpgdata['manufacturer'])
+# print(grouped)
+# grouped.size()
+# hwyMean = grouped.mean()
+# print(hwyMean)
+mpgsort = mpgdata.sort_values(by='hwy',ascending=False).groupby('manufacturer').head(1)
+print(mpgsort[:3])
 
 
+def question08():
+    myList = mpgFunc()
+    carClass = 0
+    classSum = 0
+    for idx in range(0,len(myList)) :
+        classList = myList[idx]['class']
+        if classList == 'compact' :
+            classSum += 1
+        print(classList)
 
