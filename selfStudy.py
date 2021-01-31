@@ -1,3 +1,12 @@
+# 20210130
+
+try :
+    age = int(input('너 몇살이야?'))
+    if age < 19 :
+        print('애들은 가라~')
+except Exception as e :
+    print('숫자를 입력하세요!')
+
 ### composition은 상속과 다른 개념 / 클래스의 일부 기능만을 사용하고 싶을 때!
 
 class Calc01 :
