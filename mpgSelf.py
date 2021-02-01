@@ -1,10 +1,10 @@
 def mpgFunc() :
-    with open('./word/mpg.txt', 'r', encoding='utf-8') as file :
-        featureLine = file.readline().split(',')
+    with open('mpg.txt', 'r', encoding='utf-8') as file :
+        featureLine = file.readline().rstrip('\n').split(',')
         # print(featureLine, type(featureLine))
         carList = []
         for car in file.readlines():
-            car = car.split(',')
+            car = car.rstrip('\n').split(',')
             # print(car,type(car))
             dic = {}
             for key, value in zip(featureLine,car) :
@@ -99,7 +99,6 @@ def question04() :
             dicSort = sorted(dic.items(), key=lambda x:x[1], reverse=True)
             # dicSort = reversed(sorted(dic.items(), key=lambda x: x[1])) # 주소번지 출력
             print(dicSort,type(dicSort))
-
             # cnt = 0
             # for j in dicSort :
             #     cnt += 1
@@ -108,12 +107,54 @@ def question04() :
             # print(j,end='')
 question04()
 
-'''
-왜 정렬 안되고 난리이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
-'''
+# quesion05
+car_list = []
 
-def quextion05() :
-    pass
+with open('mpg.txt', 'r', encoding='utf-8') as file :
+    file.readline()
+    for car in file.readlines():
+        car_info = car.strip('\n').split(',')
+        mpg_mean = (int(car_info[-4]) + int(car_info[-3])) / 2
+        car_info.append(mpg_mean)
+        car_list.append(car_info)
+
+suv_mfgr = []
+suv_mpg_sums_count = []
+for car in car_list:
+    if car[-2] == 'suv':
+        if car[0] not in suv_mfgr:
+            suv_mfgr.append(car[0])
+            suv_mpg_sums_count.append([car[-1], 1])
+        else:
+            suv_mpg_sums_count[-1][0] += car[-1]
+            suv_mpg_sums_count[-1][1] += 1
+
+suv_mpg_means_data = [data[0]/data[1] for data in suv_mpg_sums_count]
+suv_mpg_means_by_mfgr = tuple(zip(suv_mfgr, suv_mpg_means_data))
+suv_mpg_means_by_mfgr = sorted(suv_mpg_means_by_mfgr, key=lambda data: data[1], reverse=True)
+for i in range(5):
+    print('%-9s%.2f' % (suv_mpg_means_by_mfgr[i][0], suv_mpg_means_by_mfgr[i][1]))
+
+# question06
+classes = []
+cty_sums_count_by_class = []
+with open('mpg.txt', 'r', encoding='utf-8') as file :
+    file.readline()
+    for car in file.readlines():
+        car_info = car.strip('\n').split(',')
+        if car_info[-1] not in classes:
+            classes.append(car_info[-1])
+            cty_sums_count_by_class.append([int(car_info[-4]), 1])
+        else:
+            index = classes.index(car_info[-1])
+            cty_sums_count_by_class[index][0] += int(car_info[-4])
+            cty_sums_count_by_class[index][1] += 1
+
+cty_mean_by_class_values = [data[0]/data[1] for data in cty_sums_count_by_class]
+cty_mean_by_class = tuple(zip(classes, cty_mean_by_class_values))
+cty_mean_by_class = sorted(cty_mean_by_class, key=lambda data: data[1], reverse=True)
+for data in cty_mean_by_class:
+    print('%-12s%.2f' % (data[0], data[1]))
 
 # question07
 import pandas as pd
@@ -121,7 +162,7 @@ from pandas import DataFrame
 from pandas import Series
 import numpy as np
 
-mpgdata = pd.read_csv("./word/mpg.txt")
+mpgdata = pd.read_csv("mpg.txt")
 # print(mpgdata)
 grouped = mpgdata['hwy'].groupby(mpgdata['manufacturer'])
 # print(grouped)
@@ -138,7 +179,10 @@ def question08():
     classSum = 0
     for idx in range(0,len(myList)) :
         classList = myList[idx]['class']
+        # print(classList)
         if classList == 'compact' :
             classSum += 1
         print(classList)
+
+question08()
 
